@@ -21,21 +21,25 @@ Agentify/
 ├── README.md               # English（仓库默认）
 ├── README.zh.md
 ├── README.ja.md
-├── agentify.skill          # 预打包技能（若你的环境支持从该格式导入）
-└── agentify/               # 技能源码（Cursor / Claude 等 Agent Skills）
-    ├── SKILL.md            # 技能入口与工作流程
-    └── references/         # 评分、清单、模式、框架说明、规范模板等
+├── SKILL.md                # 技能入口（兼容 Agent Skills）
+└── references/
+    ├── checklist.md
+    ├── frameworks.md
+    ├── knowledge-base.md
+    ├── patterns.md
+    ├── scoring.md
+    ├── spec-example.md
+    └── spec-template.md
 ```
 
-详细能力与流程以 [`agentify/SKILL.md`](agentify/SKILL.md) 为准。
+详细能力与流程以 [`SKILL.md`](SKILL.md) 为准。
 
 ## 使用方式
 
-1. **作为 Agent Skill**  
-   将 `agentify` 目录放到你所用工具要求的 Skills 目录中（例如 Cursor 的 user skills 路径），确保能加载其中的 `SKILL.md` 与 `references/`。
+可加载的技能是**同一目录下的 `SKILL.md` 与 `references/`**（兄弟路径）。可直接使用本仓库根目录，或仅将这两项复制/软链到单独的技能文件夹。
 
-2. **预打包文件**  
-   若编辑器或 CLI 支持 `.skill` 格式，可直接使用根目录下的 `agentify.skill` 导入（具体步骤以对应产品文档为准）。
+- **Cursor** — 将该文件夹加入 Cursor 的 user skills 目录。
+- **OpenClaw** — 放入 `~/.openclaw/skills/` 或工作区 `skills/`；加载顺序与可选配置见 [OpenClaw Skills 文档](https://docs.openclaw.ai/skills/)（亦可在 `~/.openclaw/openclaw.json` 中配置 `skills.load.extraDirs` 等）。
 
 ## 许可
 

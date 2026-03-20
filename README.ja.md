@@ -21,21 +21,25 @@ Agentify/
 ├── README.md               # English（既定）
 ├── README.zh.md
 ├── README.ja.md
-├── agentify.skill          # パッケージ済みスキル（対応ツール向け）
-└── agentify/               # スキル本体（Cursor / Claude などの Agent Skills）
-    ├── SKILL.md            # エントリとワークフロー
-    └── references/         # 採点、チェックリスト、パターン、フレームワーク、仕様テンプレート
+├── SKILL.md                # スキルエントリ（Agent Skills 互換）
+└── references/
+    ├── checklist.md
+    ├── frameworks.md
+    ├── knowledge-base.md
+    ├── patterns.md
+    ├── scoring.md
+    ├── spec-example.md
+    └── spec-template.md
 ```
 
-詳細は [`agentify/SKILL.md`](agentify/SKILL.md) を参照してください。
+詳細は [`SKILL.md`](SKILL.md) を参照してください。
 
 ## 使い方
 
-1. **Agent Skill として**  
-   `agentify` フォルダを、利用ツールが指定する Skills ディレクトリ（例：Cursor の user skills）に配置し、`SKILL.md` と `references/` が読み込まれるようにします。
+読み込まれるスキルは、**同じ階層にある `SKILL.md` と `references/`** です。このリポジトリのルートをそのまま使うか、`SKILL.md` と `references/` だけを専用フォルダへコピー／シンボリックリンクしてください。
 
-2. **パッケージファイル**  
-   エディタや CLI が `.skill` に対応している場合、リポジトリ直下の `agentify.skill` をインポートします（手順は各製品のドキュメントに従ってください）。
+- **Cursor** — そのフォルダを Cursor の user skills に追加します。
+- **OpenClaw** — `~/.openclaw/skills/` またはワークスペースの `skills/` に置きます。読み込み順や `~/.openclaw/openclaw.json` の `skills.load.extraDirs` などは [OpenClaw Skills ドキュメント](https://docs.openclaw.ai/skills/) を参照してください。
 
 ## ライセンス
 

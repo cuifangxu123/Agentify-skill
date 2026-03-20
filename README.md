@@ -21,21 +21,25 @@ Agentify/
 ├── README.md               # English (default)
 ├── README.zh.md
 ├── README.ja.md
-├── agentify.skill          # Packaged skill (if your tool supports this format)
-└── agentify/               # Skill source (Cursor / Claude Agent Skills, etc.)
-    ├── SKILL.md            # Entry point and workflows
-    └── references/         # Scoring, checklists, patterns, frameworks, spec templates
+├── SKILL.md                # Skill entry (Agent Skills–compatible)
+└── references/
+    ├── checklist.md
+    ├── frameworks.md
+    ├── knowledge-base.md
+    ├── patterns.md
+    ├── scoring.md
+    ├── spec-example.md
+    └── spec-template.md
 ```
 
-For full behavior, see [`agentify/SKILL.md`](agentify/SKILL.md).
+For full behavior, see [`SKILL.md`](SKILL.md).
 
 ## Usage
 
-1. **As an Agent Skill**  
-   Place the `agentify` folder in your tool’s Skills directory (e.g. Cursor user skills) so `SKILL.md` and `references/` load correctly.
+The loadable skill is **`SKILL.md` and `references/` as sibling paths** (same directory). You can use this repository root as that folder, or copy/symlink only those two into a dedicated skill directory.
 
-2. **Packaged file**  
-   If your editor or CLI supports `.skill`, import `agentify.skill` from the repo root (follow that product’s docs).
+- **Cursor** — Add that folder to your Cursor user skills directory.
+- **OpenClaw** — Place it under `~/.openclaw/skills/` or your workspace `skills/` directory (see [OpenClaw Skills](https://docs.openclaw.ai/skills/) for load order and optional `skills.load.extraDirs` in `~/.openclaw/openclaw.json`).
 
 ## License
 
